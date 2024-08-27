@@ -8,15 +8,16 @@ $ git config --global user.email "eng.djena075@gmail.com"
 ```
 
 2.Create a Git folder,
-
+```bash
 $ mkdir myproject
 $ cd myproject
+```
 
 3.Initialize the Git,
-
+```bash
 $ git init
 Initialized empty Git repository in /home/phytec/Documents/gitProject/myproject/.git/
-
+```
 4.Create a simple c code,
 
 $ nano test.c
