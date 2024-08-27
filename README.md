@@ -127,12 +127,15 @@ $ git commit -m "Merged the new branch Git_test_v0.1"
 ### 21. Creating a Repository on GitHub
 Follow GitHub's interface to create a new repository.
 ![img 1](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2014-12-47.png)
+![img 2](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2014-12-54.png)
+![img 3](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2014-13-08.png)
 
 ### 22. Pushing Local Repository to GitHub
 ```bash
 $ git remote add origin https://github.com/Dibyajyoti-08/git_repo.git
 $ git push --set-upstream origin master
 ```
+![img 4](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2014-32-10.png)
 
 ### 23. Fetching Updates from Remote Repository
 ```bash
@@ -285,6 +288,7 @@ Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/Dibyajyoti-08/git_repo.git
    b126183..bdf4823  master -> master
 ```
+![img 5](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-04-23.png)
 
 ### 35. Pulling a Branch from GitHub
 
@@ -396,9 +400,20 @@ To https://github.com
 /Dibyajyoti-08/git_repo.git
  * [new branch]      Git_test_v0.1 -> Git_test_v0.1
 ```
+![img 6](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-26-07.png)
 
 
 ### 41. We can now create a pull request in order to merge this branch.
+![img 7](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-28-19.png)
+![img 8](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-28-40.png)
+
+
+
 ### 42. Click on the request you got and if it looks good you can merge it
+![img 9](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-29-04.png)
+![img 10](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-30-15.png)
+![img 11](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-30-35.png)
+![img 12](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-30-51.png)
+![img 13](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-30-59.png)
 
 ---
