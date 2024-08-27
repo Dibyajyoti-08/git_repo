@@ -126,6 +126,7 @@ $ git commit -m "Merged the new branch Git_test_v0.1"
 
 ### 21. Creating a Repository on GitHub
 Follow GitHub's interface to create a new repository.
+![img 1](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2014-12-47.png)
 
 ### 22. Pushing Local Repository to GitHub
 ```bash
