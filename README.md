@@ -2,7 +2,7 @@
 
 1.Configuring git with my personal git hub account username and email,
 
-'''bash
+```bash
 $ git config --global user.name "Dibyajyoti-08"
 $ git config --global user.email "eng.djena075@gmail.com"
 
