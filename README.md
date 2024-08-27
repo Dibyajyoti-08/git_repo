@@ -1,4 +1,3 @@
-
 # Git Walk-Through
 
 This guide provides a step-by-step process for using Git, from configuring Git with your personal account to creating branches, committing changes, and managing remote repositories.
@@ -416,4 +415,3 @@ To https://github.com
 ![img 12](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-30-51.png)
 ![img 13](https://github.com/Dibyajyoti-08/git_repo/blob/94070c0709f47a2138d4350b113866373d2f34ad/images/Screenshot%20from%202024-08-27%2015-30-59.png)
 
----
