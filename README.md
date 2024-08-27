@@ -396,4 +396,8 @@ To https://github.com
  * [new branch]      Git_test_v0.1 -> Git_test_v0.1
 ```
 
+
+### 41. We can now create a pull request in order to merge this branch.
+### 42. Click on the request you got and if it looks good you can merge it
+
 ---
