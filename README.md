@@ -1,307 +1,166 @@
-# Git Hub Walk-Through
-
-1. Configuring git with my personal GitHub account username and email,
-
-    ```bash
-    $ git config --global user.name "Dibyajyoti-08"
-    $ git config --global user.email "eng.djena075@gmail.com"
-    ```
-
-2. Create a Git folder,
-
-    ```bash
-    $ mkdir myproject
-    $ cd myproject
-    ```
-
-3. Initialize the Git,
-
-    ```bash
-    $ git init
-    Initialized empty Git repository in /home/phytec/Documents/gitProject/myproject/.git/
-    ```
-
-4. Create a simple C code,
-
-    ```bash
-    $ nano test.c
-    ```
-
-5. Check the status,
-
-    ```bash
-    $ git status
-    On branch master
-
-    No commits yet
-
-    Untracked files:
-    (use "git add <file>..." to include in what will be committed)
-        test.c
-
-    nothing added to commit but untracked files present (use "git add" to track)
-    ```
-
-6. Do the git staging environment,
-
-    ```bash
-    $ git add test.c
-    $ git status
-    On branch master
-
-    No commits yet
-
-    Changes to be committed:
-    (use "git rm --cached <file>..." to unstage)
-        new file:   test.c
-    ```
-
-7. We can add all the files in one go,
-
-    ```bash
-    $ git add --all
-    ```
-
-8. Let's perform git commit now,
-
-    ```bash
-    $ git commit -m "first release of test.c"
-    [master (root-commit) 68cbddb] first release of test.c
-    1 file changed, 5 insertions(+)
-    create mode 100644 test.c
-    ```
-
-9. It is possible to commit changes directly, skipping the staging environment using the `-a` option,
-
-    ```bash
-    $ nano test.c
-    -> make some changes
-
-    $ git status --sort
-    M test.c
-
-    $ git commit -a -m "Updated test.c with a newline."
-    [master eaaf6ce] Updated test.c with a new line.
-    1 file changed, 1 insertion(+)
-    ```
-
-10. To view the history of commits for the repository,
-
-    ```bash
-    $ git log
-    commit eaaf6ce9c861694e4a8861c6982e62d5222b8bd4 (HEAD -> master)
-    Author: Dibyajyoti-08 <eng.djena075@gmail.com>
-    Date:   Tue Aug 27 12:17:20 2024 +0530
-
-        Updated test.c with a new line.
-
-    commit 68cbddba4ee33563f1f4ae33438fda1eaab288e9
-    Author: Dibyajyoti-08 <eng.djena075@gmail.com>
-    Date:   Tue Aug 27 12:09:54 2024 +0530
-
-        first release of test.c
-    ```
-
-11. Create a new git branch,
-
-    ```bash
-    $ git branch Git_test_v0.1
-    ```
-
-12. If we see there will be two branches, one is the default one, and another is the one you have created,
-
-    ```bash
-    $ git branch
-      Git_test_v0.1
-    * master
-    ```
-
-13. Let's switch to the branch that we have created,
-
-    ```bash
-    $ git checkout Git_test_v0.1
-    Switched to branch 'Git_test_v0.1'
-    ```
-
-14. Now our git branch has been changed. Then I have made some changes in the test.c and also added a new file as `new.c`. If we check the status,
-
-    ```bash
-    $ git status
-    On branch Git_test_v0.1
-    Changes not staged for commit:
-    (use "git add <file>..." to update what will be committed)
-    (use "git restore <file>..." to discard changes in working directory)
-        modified:   test.c
-
-    Untracked files:
-    (use "git add <file>..." to include in what will be committed)
-        new.c
-
-    no changes added to commit (use "git add" and/or "git commit -a")
-    ```
-
-15. Now we will add all the changes and commit them,
-
-    ```bash
-    $ git add --all
-
-    $ git status
-    On branch Git_test_v0.1
-    Changes to be committed:
-    (use "git restore --staged <file>..." to unstage)
-        new file:   new.c
-        modified:   test.c
-
-    $ git commit -m "Added a new file in the source"
-    [Git_test_v0.1 077fe3d] Added a new file in the source.
-    2 files changed, 8 insertions(+), 1 deletion(-)
-    create mode 100644 new.c
-
-    $ git status 
-    On branch Git_test_v0.1
-    nothing to commit, working tree clean
-    ```
-
-16. If we switch between the branches and check out the master branch, we can see that in the master branch, there is no such file as `new.c`.
-
-    ```bash
-    $ ls
-    new.c  test.c
-    $ git checkout master
-    $ ls
-    test.c
-    ```
-
-17. Let's suppose I want to fix something, but I don't want to mess with the master branch or `Git_test_v0.1`. Then we will create a new branch called `emergency-fix`. 
-
-    ```bash
-    $ git branch emergency-fix
-    $ git checkout emergency-fix
-    ```
-
-    Or we can make a new branch and checkout at the same time,
-
-    ```bash
-    $ git checkout -b emergency-fix
-    $ nano test.c 
-    ```
-
-    -> Change something in that file
-
-    ```bash
-    $ git status
-    On branch emergency-fix
-    Changes not staged for commit:
-    (use "git add <file>..." to update what will be committed)
-    (use "git restore <file>..." to discard changes in working directory)
-        modified:   test.c
-
-    no changes added to commit (use "git add" and/or "git commit -a")
-
-    $ git add test.c
-
-    $ git commit -m "updated test.c for a small bug fix"
-    ```
-
-18. Now we can merge the branches
-
-    ```bash
-    $ git checkout master
-    ```
-
-19. Now merge the current branch with the `emergency-fix` branch
-
-    ```bash
-    $ git merge emergency-fix
-    Updating eaaf6ce..42734d3
-    Fast-forward
-     test.c | 3 ++-
-     1 file changed, 2 insertions(+), 1 deletion(-)
-    ```
-
-20. As the master and `emergency-fix` branches are the same, we can now delete the `emergency-fix` branch
-
-    ```bash
-    $ git branch -d emergency-fix
-    Deleted branch emergency-fix (was 42734d3).
-    ```
-
-21. For the Merge Conflict concept, we will switch to the `Git_test_v0.1` and make changes in the `test.c`, then we will add and commit it,
-
-    ```bash
-    $ git checkout Git_test_v0.1
-
-    $ git add --all
-
-    $ git commit -m "added a new print line in the test.c"
-    ```
-
-22. Now we will check out the master branch and merge `Git_test_v0.1`, but what will happen to the recent change that we made in the master branch? The merge will fail as there is a conflict between the versions for `test.c`. We can check the same in the status as well,
-
-    ```bash
-    $ git checkout master
-
-    $ git merge Git_test_v0.1
-    Auto-merging test.c
-    CONFLICT (content): Merge conflict in test.c
-    Automatic merge failed; fix conflicts and then commit the result.
-
-    $ git status
-    On branch master
-    You have unmerged paths.
-    (fix conflicts and run "git commit")
-    (use "git merge --abort" to abort the merge)
-
-    Changes to be committed:
-        new file:   new.c
-
-    Unmerged paths:
-    (use "git add <file>..." to mark resolution)
-        both modified:   test.c
-    ```
-
-23. Now it is confirmed that there is a conflict between the versions of the `test.c` file. Open the file and make changes to resolve the conflict of the versions, then we will add the file and check the status,
-
-    ```bash
-    $ nano test.c
-    # include<stdio.h>
-    int main() {
-        printf("This is the Git test.");
-    <<<<<<< HEAD
-        print("Small change occured");
-        print("Bug fix");
-    =======
-        printf("Small change occured!");
-        printf("new change.");
-        printf("Added a new line.");
-    >>>>>>> Git_test_v0.1
-        return 0;
-    }
-    -> Make the changes and add the file
-    # include<stdio.h>
-    int main() {
-        printf("This is the Git test.");
-        print("Small change occured");
-        print("Bug fix");
-        printf("Small change occured!");
-        printf("new change.");
-        printf("Added a new line.");
-        return 0;
-    }
-
-    $ git add
-
- --all
-
-    $ git status
-    On branch master
-    All conflicts fixed but you are still merging.
-    (use "git commit" to conclude merge)
-
-    Changes to be committed:
-        new file:   new.c
-        modified:   test.c
-
-    $ git commit -m "Fixed the test.c conflicts"
-    ```
-
+Here's the full README file update based on your Git Walk-Through:
+
+---
+
+# Git Walk-Through
+
+This guide provides a step-by-step process for using Git, from configuring Git with your personal account to creating branches, committing changes, and managing remote repositories.
+
+### 1. Configuring Git with Personal GitHub Account
+```bash
+$ git config --global user.name "Dibyajyoti-08"
+$ git config --global user.email "eng.djena075@gmail.com"
+```
+
+### 2. Creating a Git Folder
+```bash
+$ mkdir myproject
+$ cd myproject
+```
+
+### 3. Initializing Git
+```bash
+$ git init
+Initialized empty Git repository in /home/phytec/Documents/gitProject/myproject/.git/
+```
+
+### 4. Creating a Simple C Code
+```bash
+$ nano test.c
+```
+
+### 5. Checking the Git Status
+```bash
+$ git status
+```
+
+### 6. Staging Files for Commit
+```bash
+$ git add test.c
+$ git status
+```
+
+### 7. Adding All Files at Once
+```bash
+$ git add --all
+```
+
+### 8. Performing Git Commit
+```bash
+$ git commit -m “first release of test.c”
+```
+
+### 9. Committing Changes Directly Without Staging
+```bash
+$ nano test.c
+# Make some changes
+$ git commit -a -m “Updated test.c with a new line.”
+```
+
+### 10. Viewing the Commit History
+```bash
+$ git log
+```
+
+### 11. Creating a New Git Branch
+```bash
+$ git branch Git_test_v0.1
+```
+
+### 12. Viewing Available Branches
+```bash
+$ git branch
+```
+
+### 13. Switching to a New Branch
+```bash
+$ git checkout Git_test_v0.1
+```
+
+### 14. Modifying Files in a Branch
+```bash
+$ nano test.c
+$ nano new.c
+$ git status
+```
+
+### 15. Staging and Committing Changes in a Branch
+```bash
+$ git add --all
+$ git commit -m “Added a new file in the source”
+```
+
+### 16. Switching Between Branches
+```bash
+$ git checkout master
+$ ls
+```
+
+### 17. Creating and Switching to an Emergency Fix Branch
+```bash
+$ git branch emergency-fix
+$ git checkout emergency-fix
+# or
+$ git checkout -b emergency-fix
+```
+
+### 18. Merging Branches
+```bash
+$ git checkout master
+$ git merge emergency-fix
+```
+
+### 19. Deleting a Branch After Merge
+```bash
+$ git branch -d emergency-fix
+```
+
+### 20. Handling Merge Conflicts
+```bash
+$ git checkout Git_test_v0.1
+$ git add --all
+$ git commit -m "added a new print line in the test.c"
+$ git checkout master
+$ git merge Git_test_v0.1
+# Resolve conflicts in the file
+$ git add test.c
+$ git commit -m "Merged the new branch Git_test_v0.1"
+```
+
+### 21. Creating a Repository on GitHub
+Follow GitHub's interface to create a new repository.
+
+### 22. Pushing Local Repository to GitHub
+```bash
+$ git remote add origin https://github.com/Dibyajyoti-08/git_repo.git
+$ git push --set-upstream origin master
+```
+
+### 23. Fetching Updates from Remote Repository
+```bash
+$ git fetch origin
+```
+
+### 24. Checking the Status After Fetch
+```bash
+$ git status
+```
+
+### 25. Viewing the Log for the Remote Branch
+```bash
+$ git log origin/master
+```
+
+### 26. Checking Differences Between Local and Remote
+```bash
+$ git diff origin/master
+```
+
+### 27. Merging Remote Updates to Local Branch
+```bash
+$ git merge origin/master
+```
+
+---
+
+This README provides a comprehensive guide for a beginner to get familiar with the basic Git operations including working with branches, committing, pushing to remote repositories, and handling merge conflicts.
