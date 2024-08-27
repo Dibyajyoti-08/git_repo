@@ -5,6 +5,7 @@
 ```bash
 $ git config --global user.name "Dibyajyoti-08"
 $ git config --global user.email "eng.djena075@gmail.com"
+```
 
 2.Create a Git folder,
 
