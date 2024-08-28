@@ -6,5 +6,6 @@ int main() {
 	printf("Small change occured!");
 	printf("new change.");
 	printf("Added a new line.");
+	printf("New modification");
 	return 0;
 }
