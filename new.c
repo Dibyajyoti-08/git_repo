@@ -3,6 +3,6 @@
 int main(){
 	printf("new file.");
         printf("some new changes");
-	printf("Some new methods");
+	printf("Some new methods and features");
 	return 0;
 }
